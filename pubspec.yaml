@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   hexcolor: ^1.0.6
   google_sign_in: ^4.5.9
+  flutter_icons: ^1.1.0
+  flutter_svg: ^0.19.1
 
 dev_dependencies:
   flutter_test:

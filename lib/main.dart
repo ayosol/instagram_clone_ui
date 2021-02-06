@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:instagram_clone_ui/views/login_screen.dart';
+import 'package:instagram_clone_ui/views/root_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: HexColor("#F5F6FA")),
-      home: LoginScreen(),
+      home: RootScreen(),
     );
   }
 }
