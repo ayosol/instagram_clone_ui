@@ -20,13 +20,13 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBgColor,
-      body: getBody(),
-      bottomNavigationBar: getBottomNavBar(),
+      body: _body(),
+      bottomNavigationBar: _bottomNavBar(),
     );
   }
 
   //Body of the Application ---> Every other Pages are Loaded here
-  Widget getBody() {
+  Widget _body() {
     return IndexedStack(
       index: pageIndex,
       children: [
@@ -40,7 +40,7 @@ class _RootScreenState extends State<RootScreen> {
   }
 
   // BottomNavBar for the Root of Application
-  Widget getBottomNavBar() {
+  Widget _bottomNavBar() {
     return Container(
       width: double.infinity,
       height: 60,
