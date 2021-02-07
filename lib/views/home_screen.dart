@@ -4,7 +4,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/feed_json.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
-import 'package:instagram_clone_ui/widgets/story.dart';
+import 'package:instagram_clone_ui/widgets/feed_item.dart';
+import 'package:instagram_clone_ui/widgets/story_item.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -170,72 +171,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Column(
         children: List.generate(feed.length, (index) {
-          return Padding(
-            padding: EdgeInsets.only(bottom: 20),
-            child: Container(
-              color: white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 15, bottom: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient:
-                                    LinearGradient(colors: storyBorderColor),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(1.5),
-                                child: Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      width: 1,
-                                      color: white,
-                                    ),
-                                    image: DecorationImage(
-                                      image: CachedNetworkImageProvider(
-                                          feed[index]['profileImg']),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              feed[index]['username'],
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        Icon(FontAwesome.ellipsis_v, size: 15),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 400,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            CachedNetworkImageProvider(feed[index]['imageUrl']),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+          return FeedItem(
+            username: feed[index]['username'],
+            profileImg: feed[index]['profileImg'],
+            imageUrl: feed[index]['imageUrl'],
           );
         }),
       ),

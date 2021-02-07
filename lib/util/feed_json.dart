@@ -78,13 +78,13 @@ const feed = [
     "comments": "View all 143 comments",
     "dateTime": "21 hours ago"
   },
-  /*{
+  {
     "id": 7,
     "username": "loverrukk",
     "profileImg":
         "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "imageUrl":
-        "https://instagram.fpnh5-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/138819463_239762640857069_4327518479881965947_n.jpg?_nc_ht=instagram.fpnh5-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=jbjYdFDeukMAX_X4BI2&tp=1&oh=4172b21aaba0d0f1a3e5de63f487d9ae&oe=602CF2C0",
+        "https://images.unsplash.com/photo-1524758870432-af57e54afa26?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "likes": "131,148",
     "isLike": false,
     "caption": "Jesus me ama e eu também o amo",
@@ -97,11 +97,11 @@ const feed = [
     "profileImg":
         "https://images.unsplash.com/photo-1463453091185-61582044d556?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "imageUrl":
-        "https://instagram.fpnh5-4.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/138593252_959354597927197_8272887435587341710_n.jpg?_nc_ht=instagram.fpnh5-4.fna.fbcdn.net&_nc_cat=101&_nc_ohc=EI-7FjfdkqgAX-pvW9B&tp=1&oh=465534c9c3559903e4c272c56202f34e&oe=6029DA0B",
+        "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "likes": "3,413",
     "isLike": false,
     "caption": "Я люблю свою жизнь больше",
     "comments": "View all 17,792 comments",
     "dateTime": "6 hours ago"
-  },*/
+  },
 ];
