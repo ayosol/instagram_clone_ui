@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const appBgColor = Color(0xFFE8E8E8);
+const appBgColor = Color(0xFFAAA7A7);
 const appBarColor = Color(0xFFF5F6FA);
 const appFooterColor = Color(0xFFF5F6FA);
 const white = Color(0xFFFFFFFF);

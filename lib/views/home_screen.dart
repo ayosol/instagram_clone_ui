@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           _storyGenerator(),
           Divider(
-            color: appBgColor.withOpacity(0.3),
+            color: Colors.transparent,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20),
@@ -80,9 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Divider(
-            color: appBgColor.withOpacity(0.3),
-          ),
+          Divider(color: Colors.transparent),
           _feedGenerator(),
         ],
       ),
@@ -175,6 +173,11 @@ class _HomeScreenState extends State<HomeScreen> {
             username: feed[index]['username'],
             profileImg: feed[index]['profileImg'],
             imageUrl: feed[index]['imageUrl'],
+            likes: feed[index]['likes'],
+            isLike: feed[index]['isLike'],
+            caption: feed[index]['caption'],
+            comments: feed[index]['comments'],
+            dateTime: feed[index]['dateTime'],
           );
         }),
       ),
