@@ -5,7 +5,6 @@ import 'package:instagram_clone_ui/theme/colors.dart';
 class StoryWidget extends StatelessWidget {
   final String imageUrl;
   final String username;
-
   const StoryWidget({
     Key key,
     this.imageUrl,

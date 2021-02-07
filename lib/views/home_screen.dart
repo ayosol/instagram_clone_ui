@@ -2,8 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
+import 'package:instagram_clone_ui/util/feed_json.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
-import 'package:instagram_clone_ui/widgets/story_widget.dart';
+import 'package:instagram_clone_ui/widgets/story.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -56,80 +57,188 @@ class _HomeScreenState extends State<HomeScreen> {
   //HomePage Main Body
   Widget homeScreenBody() {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: _storyGenerator(),
+      child: Column(
+        children: [
+          _storyGenerator(),
+          Divider(
+            color: appBgColor.withOpacity(0.3),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Explorar",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            color: appBgColor.withOpacity(0.3),
+          ),
+          _feedGenerator(),
+        ],
+      ),
     );
   }
 
+  // Widget for placing stories on the homepage
   Widget _storyGenerator() {
-    return Row(
-      children: [
-        Padding(
-          padding:
-              const EdgeInsets.only(right: 20, left: 15, bottom: 10, top: 5),
-          child: Column(
-            children: [
-              //User Profile for the Stories
-              Container(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: CachedNetworkImageProvider(
-                              'https://images.unsplash.com/photo-1550639524-a6f58345a2ca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZhY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(right: 20, left: 15, bottom: 10, top: 5),
+            child: Column(
+              children: [
+                //User Profile for the Stories
+                Container(
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: CachedNetworkImageProvider(
+                                'https://images.unsplash.com/photo-1550639524-a6f58345a2ca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZhY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                          ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: white),
-                          child: Icon(
-                            Icons.add_circle,
-                            color: Colors.blueGrey,
-                            size: 20,
-                          ),
-                        ))
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 6,
-              ),
-              SizedBox(
-                width: 70,
-                child: Center(
-                  child: Text(
-                    "Your Story",
-                    //overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.black, fontSize: 12),
+                      Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle, color: white),
+                            child: Icon(
+                              Icons.add_circle,
+                              color: Color.alphaBlend(
+                                  Color(0xFFDD2A7B), Color(0xFF7820AD)),
+                              size: 20,
+                            ),
+                          ))
+                    ],
                   ),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 70,
+                  child: Center(
+                    child: Text(
+                      "Your Story",
+                      //overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        Row(
-          children: List.generate(
-            stories.length,
-            (index) {
-              return StoryWidget(
-                imageUrl: stories[index]['imageUrl'],
-                username: stories[index]['username'],
-              );
-            },
+          Row(
+            children: List.generate(
+              stories.length,
+              (index) {
+                return StoryWidget(
+                  imageUrl: stories[index]['imageUrl'],
+                  username: stories[index]['username'],
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
+    );
+  }
+
+  // Widget for generating feed or posts
+  Widget _feedGenerator() {
+    return SingleChildScrollView(
+      child: Column(
+        children: List.generate(feed.length, (index) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 20),
+            child: Container(
+              color: white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 15, bottom: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient:
+                                    LinearGradient(colors: storyBorderColor),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(1.5),
+                                child: Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      width: 1,
+                                      color: white,
+                                    ),
+                                    image: DecorationImage(
+                                      image: CachedNetworkImageProvider(
+                                          feed[index]['profileImg']),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              feed[index]['username'],
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Icon(FontAwesome.ellipsis_v, size: 15),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image:
+                            CachedNetworkImageProvider(feed[index]['imageUrl']),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        }),
+      ),
     );
   }
 }
