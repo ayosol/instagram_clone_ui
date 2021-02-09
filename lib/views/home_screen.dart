@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     //var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: appBgColor,
       appBar: myAppBar(),
       body: homeScreenBody(),
     );
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       title: Text(
         "Instagram",
         style: TextStyle(
-          color: Colors.black,
+          color: black,
           fontFamily: 'Billabong',
           fontSize: 30,
         ),
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {},
         icon: Icon(
           Feather.plus_circle,
-          color: Colors.black,
+          color: black,
         ),
       ),
       actions: <Widget>[
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {},
           icon: Icon(
             Feather.message_circle,
-            color: Colors.black,
+            color: black,
           ),
         ),
       ],
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Explorar",
+                  "Explorer",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Widget for placing stories on the homepage
+  // Widget for placing stories on the homepage top
   Widget _storyGenerator() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -167,19 +168,23 @@ class _HomeScreenState extends State<HomeScreen> {
   // Widget for generating feed or posts
   Widget _feedGenerator() {
     return SingleChildScrollView(
-      child: Column(
-        children: List.generate(feed.length, (index) {
-          return FeedItem(
-            username: feed[index]['username'],
-            profileImg: feed[index]['profileImg'],
-            imageUrl: feed[index]['imageUrl'],
-            likes: feed[index]['likes'],
-            isLike: feed[index]['isLike'],
-            caption: feed[index]['caption'],
-            comments: feed[index]['comments'],
-            dateTime: feed[index]['dateTime'],
-          );
-        }),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: List.generate(feed.length, (index) {
+            return FeedItem(
+              username: feed[index]['username'],
+              profileImg: feed[index]['profileImg'],
+              imageUrl: feed[index]['imageUrl'],
+              likes: feed[index]['likes'],
+              likeNo: feed[index]['likeNo'],
+              isLike: feed[index]['isLike'],
+              caption: feed[index]['caption'],
+              comments: feed[index]['comments'],
+              feedTime: feed[index]['feedTime'],
+            );
+          }),
+        ),
       ),
     );
   }

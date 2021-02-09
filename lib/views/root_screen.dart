@@ -53,7 +53,7 @@ class _RootScreenState extends State<RootScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(
-              icons.length,
+              bottom_nav_bar_icons.length,
               (index) => IconButton(
                     onPressed: () {
                       setState(() {
@@ -62,8 +62,8 @@ class _RootScreenState extends State<RootScreen> {
                     },
                     icon: SvgPicture.asset(
                       pageIndex == index
-                          ? icons[index]['active']
-                          : icons[index]['inactive'],
+                          ? bottom_nav_bar_icons[index]['active']
+                          : bottom_nav_bar_icons[index]['inactive'],
                       width: 25,
                       height: 25,
                     ),

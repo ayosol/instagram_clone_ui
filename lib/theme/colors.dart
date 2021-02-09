@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-const appBgColor = Color(0xFFAAA7A7);
+const appBgColor = Color(0xFFF5F6FA);
 const appBarColor = Color(0xFFF5F6FA);
 const appFooterColor = Color(0xFFF5F6FA);
 const white = Color(0xFFFFFFFF);
+const grey = Color(0xFFE9EFFA);
+const instaColor = Color(0xFF262626);
+const instaBtnColor = Color(0xFF2E384D);
 const black = Color(0xFF000000);
+const feedBorderColor = Colors.white;
 const bgStoryColors = [
   const Color(0xffA844A1),
   const Color(0xffAB429A),
@@ -14,4 +18,4 @@ const bgStoryColors = [
   const Color(0xffF9A326),
   const Color(0xffF9DD26),
 ];
-const storyBorderColor = [Color(0xFFDD2A7B), Color(0xFF7820AD)];
+const storyBorderColors = [Color(0xFFDD2A7B), Color(0xFF7820AD)];

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:instagram_clone_ui/views/home_screen.dart';
+import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/views/root_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       print(_googleSignIn.currentUser.photoUrl);
       if (_isLoggedIn) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            context, MaterialPageRoute(builder: (context) => RootScreen()));
       }
     } catch (err) {
       print(err);
@@ -58,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             "Instagram",
             style: TextStyle(
-              color: HexColor('#262626'),
+              color: instaColor,
               fontFamily: 'Billabong',
               fontSize: 45,
               fontWeight: FontWeight.w500,
@@ -70,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           FlatButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: HexColor('#2E384D'),
+            color: instaBtnColor,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
@@ -78,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.center,
                 textDirection: TextDirection.ltr,
                 softWrap: true,
-                style: TextStyle(color: HexColor('#FFFFFF'), fontSize: 14),
+                style: TextStyle(color: white, fontSize: 14),
               ),
             ),
             onPressed: () {
