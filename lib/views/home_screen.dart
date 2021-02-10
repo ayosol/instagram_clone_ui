@@ -101,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 //User Profile for the Stories
                 Container(
+                  height: 70,
                   child: Stack(
                     children: [
                       Container(
@@ -117,24 +118,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Positioned(
                           bottom: 0,
-                          right: 0,
+                          right: 22,
                           child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: white),
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: picsBorderColors)),
                             width: 20,
                             height: 20,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle, color: white),
                             child: Icon(
-                              Icons.add_circle,
-                              color: Color.alphaBlend(
-                                  Color(0xFFDD2A7B), Color(0xFF7820AD)),
-                              size: 20,
+                              Icons.add,
+                              color: white,
+                              size: 15,
                             ),
-                          ))
+                          )),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 3,
                 ),
                 SizedBox(
                   width: 70,
@@ -145,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

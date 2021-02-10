@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
+import 'package:instagram_clone_ui/util/stories_json.dart';
+import 'package:instagram_clone_ui/widgets/story_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              //Top Container for Profile pics, Posts, Followers and Following
               Container(
                 height: 360,
                 decoration: BoxDecoration(
@@ -27,10 +30,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 3,
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
                       blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
+                      offset: Offset(0, 7), // changes position of shadow
                     ),
                   ],
                 ),
@@ -208,8 +211,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     end: Alignment.centerRight,
                                     colors: picsBorderColors)),
                             child: FlatButton(
-                              /*shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),*/
                               child: Padding(
                                 padding:
                                     const EdgeInsets.only(left: 50, right: 50),
@@ -231,9 +232,100 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: _storyGenerator(),
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  // Widget for placing stories on the homepage top
+  Widget _storyGenerator() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(right: 20, left: 15, bottom: 10, top: 5),
+            child: Column(
+              children: [
+                //User Profile for the Stories
+                Container(
+                  height: 80,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 65,
+                        height: 65,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: CachedNetworkImageProvider(
+                                'https://images.unsplash.com/photo-1550639524-a6f58345a2ca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZhY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                          bottom: 5,
+                          right: 25,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: white,
+                                ),
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: picsBorderColors)),
+                            width: 20,
+                            height: 20,
+                            child: Icon(
+                              Icons.add,
+                              color: white,
+                              size: 15,
+                            ),
+                          )),
+                    ],
+                  ),
+                ),
+                /*SizedBox(
+                  height: 2,
+                ),
+                SizedBox(
+                  width: 70,
+                  child: Center(
+                    child: Text(
+                      "Your Story",
+                      //overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                  ),
+                ),*/
+              ],
+            ),
+          ),
+          //Stories
+          Row(
+            children: List.generate(
+              stories.length,
+              (index) {
+                return StoryWidget(
+                  imageUrl: stories[index]['imageUrl'],
+                  username: stories[index]['username'],
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
