@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Positioned(
                           bottom: 0,
-                          right: 22,
+                          right: 20,
                           child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(color: white),
