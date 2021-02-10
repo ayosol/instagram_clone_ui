@@ -28,7 +28,7 @@ class StoryWidget extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: storyBorderColors)),
+                    colors: picsBorderColors)),
             child: Padding(
               padding: const EdgeInsets.all(2.0),
               child: Container(

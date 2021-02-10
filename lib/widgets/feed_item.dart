@@ -58,7 +58,7 @@ class FeedItem extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            gradient: LinearGradient(colors: storyBorderColors),
+                            gradient: LinearGradient(colors: picsBorderColors),
                           ),
                           child: Padding(
                             padding: EdgeInsets.all(1.5),
