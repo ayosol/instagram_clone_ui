@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/feed_json.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
+import 'package:instagram_clone_ui/views/root_screen.dart';
 import 'package:instagram_clone_ui/widgets/feed_item.dart';
 import 'package:instagram_clone_ui/widgets/story_item.dart';
 
@@ -100,43 +101,50 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 //User Profile for the Stories
-                Container(
-                  height: 70,
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: CachedNetworkImageProvider(
-                                'https://images.unsplash.com/photo-1550639524-a6f58345a2ca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZhY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                InkWell(
+                  child: Container(
+                    height: 70,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: CachedNetworkImageProvider(
+                                  'https://images.unsplash.com/photo-1550639524-a6f58345a2ca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZhY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                          bottom: 0,
-                          right: 20,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: white),
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: picsBorderColors)),
-                            width: 20,
-                            height: 20,
-                            child: Icon(
-                              Icons.add,
-                              color: white,
-                              size: 15,
-                            ),
-                          )),
-                    ],
+                        Positioned(
+                            bottom: 0,
+                            right: 20,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: white),
+                                  shape: BoxShape.circle,
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: picsBorderColors)),
+                              width: 20,
+                              height: 20,
+                              child: Icon(
+                                Icons.add,
+                                color: white,
+                                size: 15,
+                              ),
+                            )),
+                      ],
+                    ),
                   ),
+                  onTap: () {
+                    print("Your Story Container was clicked");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => RootScreen()));
+                  },
                 ),
                 SizedBox(
                   height: 3,
