@@ -4,8 +4,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/feed_json.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
+import 'package:instagram_clone_ui/views/account_screen.dart';
 import 'package:instagram_clone_ui/views/chat_screen.dart';
-import 'package:instagram_clone_ui/views/root_screen.dart';
 import 'package:instagram_clone_ui/widgets/feed_item.dart';
 import 'package:instagram_clone_ui/widgets/story_item.dart';
 
@@ -145,9 +145,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   onTap: () {
-                    print("Your Story Container was clicked");
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => RootScreen()));
+                    final snackBar = SnackBar(
+                      content: Text('Moving to Account Screen'),
+                      action: SnackBarAction(
+                        label: 'Undo',
+                        onPressed: () {
+                          // Some code to undo the change.
+                          Navigator.pop(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
+                      ),
+                    );
+                    Scaffold.of(context).showSnackBar(snackBar);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AccountScreen()));
                   },
                 ),
                 SizedBox(
