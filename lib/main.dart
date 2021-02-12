@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:instagram_clone_ui/theme/colors.dart';
+import 'package:instagram_clone_ui/views/root_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,8 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: HexColor("#F5F6FA")),
-      home: Scaffold(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: appBgColor),
+      home: RootScreen(),
     );
   }
 }
