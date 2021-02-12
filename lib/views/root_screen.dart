@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/bottom_nav_bar_json.dart';
+import 'package:instagram_clone_ui/views/account_screen.dart';
 import 'package:instagram_clone_ui/views/activity_screen.dart';
 import 'package:instagram_clone_ui/views/home_screen.dart';
-import 'package:instagram_clone_ui/views/profile_screen.dart';
 import 'package:instagram_clone_ui/views/reels_screen.dart';
 import 'package:instagram_clone_ui/views/search_screen.dart';
 
@@ -34,7 +34,7 @@ class _RootScreenState extends State<RootScreen> {
         SearchScreen(),
         ReelsScreen(),
         ActivityScreen(),
-        ProfileScreen(),
+        AccountScreen(),
       ],
     );
   }

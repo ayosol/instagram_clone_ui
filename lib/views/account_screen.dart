@@ -6,12 +6,12 @@ import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
 import 'package:instagram_clone_ui/widgets/story_item.dart';
 
-class ProfileScreen extends StatefulWidget {
+class AccountScreen extends StatefulWidget {
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _AccountScreenState createState() => _AccountScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
