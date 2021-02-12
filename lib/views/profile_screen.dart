@@ -376,7 +376,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Center(
                     child: StaggeredGridView.countBuilder(
                       crossAxisCount: 4,
-                      itemCount: 15,
+                      itemCount: 60,
                       itemBuilder: (BuildContext context, int index) =>
                           Container(
                         height: 120.0,
@@ -384,7 +384,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                                'https://picsum.photos/500/500?random=$index'),
+                                'https://picsum.photos/500/500?random=${index + 1110}'),
                             fit: BoxFit.fill,
                           ),
                           shape: BoxShape.rectangle,
@@ -453,7 +453,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Container(
-                    child: Text("IGTV Body"),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(40),
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(100),
+                                border: Border.all(width: 2, color: black)),
+                            child: Icon(
+                              Feather.tv,
+                              size: 30,
+                            ),
+                          ),
+                          Text(
+                            "IGTV",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

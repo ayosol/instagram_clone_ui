@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:instagram_clone_ui/theme/colors.dart';
 import 'package:instagram_clone_ui/util/feed_json.dart';
 import 'package:instagram_clone_ui/util/stories_json.dart';
+import 'package:instagram_clone_ui/views/chat_screen.dart';
 import 'package:instagram_clone_ui/views/root_screen.dart';
 import 'package:instagram_clone_ui/widgets/feed_item.dart';
 import 'package:instagram_clone_ui/widgets/story_item.dart';
@@ -47,7 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       actions: <Widget>[
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => ChatScreen()));
+          },
           icon: Icon(
             Feather.message_circle,
             color: black,
